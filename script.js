@@ -14,7 +14,7 @@ const instruments = [
 ];
 
 let usedImages = [];
-let previousInstrument = "";
+let usedInstruments = [];
 
 let score = 0;
 let currentQuestion = 0;
@@ -56,7 +56,7 @@ score = 0;
 currentQuestion = 0;
 
 usedImages = [];
-previousInstrument = "";
+usedInstruments = [];
 
 showPage("quizPage");
 
@@ -79,21 +79,20 @@ document
 .getElementById("questionNumber")
 .textContent = currentQuestion;
 
-let instrument;
+let availableInstruments =
+instruments.filter(
+instrument =>
+!usedInstruments.includes(instrument)
+);
 
-do{
-
-instrument =
-instruments[
+let instrument =
+availableInstruments[
 Math.floor(
-Math.random()*instruments.length
+Math.random()*availableInstruments.length
 )
 ];
 
-}
-while(instrument === previousInstrument);
-
-previousInstrument = instrument;
+usedInstruments.push(instrument);
 
 let imageNumber;
 
