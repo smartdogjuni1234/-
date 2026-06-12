@@ -2,198 +2,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>띵동! 국악교실</title>
 
-<title>띵동! 국악교실</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Pretendard', sans-serif;
-}
-
-body{
-    width:100%;
-    height:100vh;
-
-    background-image:url('background.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.overlay{
-    width:100%;
-    height:100%;
-    background:rgba(255,255,255,0.15);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.container{
-    text-align:center;
-    width:90%;
-    max-width:1200px;
-}
-
-.title{
-    font-size:4rem;
-    color:white;
-    font-weight:900;
-
-    text-shadow:
-        -3px -3px 0 #000,
-         3px -3px 0 #000,
-        -3px  3px 0 #000,
-         3px  3px 0 #000,
-         0px -3px 0 #000,
-         0px  3px 0 #000,
-        -3px  0px 0 #000,
-         3px  0px 0 #000;
-
-    margin-bottom:20px;
-}
-
-.subtitle{
-    color:white;
-    font-size:1.3rem;
-    font-weight:600;
-
-    margin-bottom:50px;
-
-    text-shadow:1px 1px 5px rgba(0,0,0,0.4);
-}
-
-.button-group{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    justify-content:center;
-}
-
-.menu-btn{
-
-    width:260px;
-    height:120px;
-
-    border:none;
-    border-radius:30px;
-
-    font-size:2rem;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:0.3s;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,0.2);
-}
-
-.learn{
-    background:#FFD166;
-    color:#5A3D00;
-}
-
-.play{
-    background:#7BDFF2;
-    color:#004E64;
-}
-
-.sub-btn{
-
-    width:220px;
-    height:90px;
-
-    border:none;
-    border-radius:25px;
-
-    background:white;
-
-    font-size:1.3rem;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:0.3s;
-
-    box-shadow:
-    0 6px 15px rgba(0,0,0,0.15);
-}
-
-.sub-btn:hover{
-    transform:translateY(-5px);
-}
-
-.menu-btn:hover{
-    transform:translateY(-8px) scale(1.05);
-}
-
-.hidden{
-    display:none;
-}
-
-.back-btn{
-
-    margin-top:30px;
-
-    width:180px;
-    height:60px;
-
-    border:none;
-    border-radius:20px;
-
-    background:#ff8fab;
-    color:white;
-
-    font-size:1.1rem;
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-.section-title{
-    font-size:3rem;
-    color:white;
-    margin-bottom:40px;
-    text-shadow:2px 2px 5px rgba(0,0,0,0.4);
-}
-
-@media(max-width:768px){
-
-.title{
-    font-size:2.5rem;
-}
-
-.section-title{
-    font-size:2rem;
-}
-
-.menu-btn{
-    width:220px;
-    height:100px;
-    font-size:1.6rem;
-}
-
-.sub-btn{
-    width:180px;
-    height:80px;
-    font-size:1rem;
-}
-
-}
-
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -240,12 +53,16 @@ onclick="showPage('playPage')">
 <button class="sub-btn">아쟁</button>
 <button class="sub-btn">대금</button>
 <button class="sub-btn">피리</button>
-<button class="sub-btn">타악</button>
+<button class="sub-btn">장구</button>
+<button class="sub-btn">북</button>
+<button class="sub-btn">징</button>
+<button class="sub-btn">꽹과리</button>
+<button class="sub-btn">소고</button>
+<button class="sub-btn">단소</button>
 
 </div>
 
-<button class="back-btn"
-onclick="goHome()">
+<button class="back-btn" onclick="goHome()">
 🏠 메인으로
 </button>
 
@@ -258,49 +75,99 @@ onclick="goHome()">
 
 <div class="button-group">
 
-<button class="sub-btn">🎧 듣고 맞춰봐!</button>
-<button class="sub-btn">👀 보고 맞춰봐!</button>
-<button class="sub-btn">📦 상자에 넣어줘!</button>
-<button class="sub-btn">⭕❌ OX 퀴즈</button>
+<button class="sub-btn">
+🎧 듣고 맞춰봐!
+</button>
+
+<button class="sub-btn"
+onclick="showPage('difficultyPage')">
+👀 보고 맞춰봐!
+</button>
+
+<button class="sub-btn">
+📦 상자에 넣어줘!
+</button>
+
+<button class="sub-btn">
+⭕❌ OX 퀴즈
+</button>
 
 </div>
 
-<button class="back-btn"
-onclick="goHome()">
+<button class="back-btn" onclick="goHome()">
 🏠 메인으로
 </button>
 
 </div>
 
+<!-- 난이도 선택 -->
+<div id="difficultyPage" class="hidden">
+
+<h2 class="section-title">난이도 선택</h2>
+
+<div class="button-group">
+
+<button class="sub-btn"
+onclick="startQuiz()">
+⭐ 별 1
+</button>
+
+<button class="sub-btn">
+⭐⭐ 별 2
+</button>
+
+<button class="sub-btn">
+⭐⭐⭐ 별 3
+</button>
+
 </div>
+
+<button class="back-btn"
+onclick="showPage('playPage')">
+↩ 돌아가기
+</button>
+
 </div>
 
-<script>
+<!-- 퀴즈 화면 -->
+<div id="quizPage" class="hidden">
 
-function showPage(pageId){
+<h2 class="section-title">
+문제 <span id="questionNumber">1</span>/10
+</h2>
 
-document.getElementById("mainPage").classList.add("hidden");
+<img id="quizImage" class="quiz-image">
 
-document.getElementById("learnPage").classList.add("hidden");
+<div id="answerButtons"
+class="button-group"></div>
 
-document.getElementById("playPage").classList.add("hidden");
+<div id="resultArea"></div>
 
-document.getElementById(pageId).classList.remove("hidden");
+</div>
 
-}
+<!-- 결과 화면 -->
+<div id="resultPage" class="hidden">
 
-function goHome(){
+<h2 class="section-title">결과 발표</h2>
 
-document.getElementById("mainPage").classList.remove("hidden");
+<h3 id="finalScore"></h3>
 
-document.getElementById("learnPage").classList.add("hidden");
+<p id="finalMessage"></p>
 
-document.getElementById("playPage").classList.add("hidden");
+<button class="back-btn"
+onclick="restartQuiz()">
+다시하기
+</button>
 
-}
+</div>
 
-</script>
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
 ```
+
