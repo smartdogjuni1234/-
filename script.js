@@ -118,7 +118,7 @@ currentAnswer = instrument;
 document
 .getElementById("quizImage")
 .src =
-`images/${instrument}/${imageNumber}.jpg`;
+`images/${instrument}/${imageNumber}.png`;
 
 createAnswers(instrument);
 
@@ -184,7 +184,7 @@ const image =
 document.getElementById("quizImage");
 
 image.src =
-`full/${currentAnswer}.jpg`;
+`full/${currentAnswer}.png`;
 
 if(choice===currentAnswer){
 
