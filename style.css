@@ -114,19 +114,22 @@ cursor:pointer;
 
 .quiz-image{
 
-width:500px;
-max-width:90%;
+width:700px;
+height:450px;
+
+max-width:90vw;
+
+object-fit:cover;
 
 border-radius:20px;
 
 margin:20px auto;
 
 display:block;
-}
 
-#resultArea{
-margin-top:20px;
-font-size:1.5rem;
-color:white;
-font-weight:bold;
+background:white;
+
+box-shadow:
+0 6px 15px rgba(0,0,0,0.2);
+
 }
