@@ -100,7 +100,7 @@ let imageNumber;
 do{
 
 imageNumber =
-Math.floor(Math.random()*10)+1;
+Math.floor(Math.random()*3)+1;
 
 }
 while(
